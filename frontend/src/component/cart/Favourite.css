@@ -1,0 +1,177 @@
+.emptyfavourites {
+    margin: auto;
+    text-align: center;
+    padding: 10vmax;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .emptyfavourites > svg {
+    font-size: 5vmax;
+    color: #3BB77E;
+  }
+  .emptyfavourites > p {
+    font-size: 2vmax;
+  }
+  .emptyfavourites > a {
+    background-color: rgb(51, 51, 51);
+    color: white;
+    border: none;
+    padding: 1vmax 3vmax;
+    cursor: pointer;
+    font: 400 1vmax "Roboto";
+    text-decoration: none;
+  }
+  
+  .favouritesPage {
+    padding: 5vmax;
+  }
+  
+  .favouritesHeader {
+    background-color: #3BB77E;
+    width: 100%;
+    box-sizing: border-box;
+    margin: auto;
+    color: white;
+    justify-content: space-between;
+    display: flex;
+    font: 300 0.7vmax "Roboto";
+  }
+  .favouritesHeader > p {
+    margin: 10px;
+  }
+  .favouritesHeader > p:last-child {
+    text-align: end;
+  }
+  
+  .favouritesContainer {
+    width: 100%;
+    margin: auto;
+    border-bottom: 1px solid #99999942;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .favouritesInput {
+    display: flex;
+    align-items: center;
+    height: 8vmax;
+  }
+  
+  .favouritesInput > button {
+    border: none;
+    background-color: #3BB77E;
+    padding: 0.5vmax;
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s;
+  }
+  .favouritesInput > button:hover {
+    background-color: #3BB77E;
+  }
+  
+  .favouritesInput > input {
+    border: none;
+    padding: 0.5vmax;
+    width: 1vmax;
+    text-align: center;
+    outline: none;
+    font: 400 0.8vmax "Roboto";
+    color: rgba(0, 0, 0, 0.74);
+  }
+  
+  .favouritesSubtotal {
+    display: flex;
+    padding: 0.5vmax;
+    height: 8vmax;
+    align-items: center;
+    box-sizing: border-box;
+    font: 300 1vmax cursive;
+    justify-content: flex-end;
+    color: rgba(0, 0, 0, 0.753);
+  }
+  
+  .favouritesGrossProfit {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+  }
+  
+  .favouritesGrossProfitBox {
+    border-top: 3px solid #3BB77E;
+    margin: 1vmax 4vmax;
+    box-sizing: border-box;
+    padding: 2vmax 0;
+    font: 300 1vmax "Roboto";
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .checkOutBtn {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .checkOutBtn > button {
+    background-color: #3BB77E;
+    color: white;
+    border: none;
+    padding: 0.8vmax 3vmax;
+    font: 300 0.8vmax "Roboto";
+    margin: 1vmax 4vmax;
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .favouritesPage {
+      padding: 0;
+      min-height: 60vh;
+    }
+  
+    .favouritesHeader {
+      width: 100%;
+      font: 300 1.7vmax "Roboto";
+      grid-template-columns: 3fr 1fr 1fr;
+    }
+  
+    .favouritesContainer {
+      width: 100%;
+      grid-template-columns: 3fr 1fr 1fr;
+    }
+  
+    .favouritesInput {
+      height: 20vmax;
+    }
+  
+    .favouritesInput > button {
+      padding: 1.5vmax;
+    }
+  
+    .favouritesInput > input {
+      width: 2vmax;
+      padding: 1.5vmax;
+      font: 400 1.8vmax "Roboto";
+    }
+  
+    .favouritesSubtotal {
+      padding: 1.5vmax;
+      height: 20vmax;
+      font: 300 2vmax "Roboto";
+    }
+  
+    .favouritesGrossProfit {
+      display: grid;
+      grid-template-columns: 0fr 2fr;
+    }
+  
+    .favouritesGrossProfitBox {
+      padding: 2vmax;
+      font: 300 2vmax "Roboto";
+    }
+  
+    .checkOutBtn > button {
+      padding: 2vmax 4vmax;
+      width: 100%;
+      font: 300 2vmax "Roboto";
+    }
+  }

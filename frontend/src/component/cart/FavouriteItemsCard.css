@@ -1,0 +1,65 @@
+.FavouriteItemsCard {
+    display: flex;
+    padding: 1vmax;
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .FavouriteItemsCard > div > img {
+    width: 5vmax;
+  }
+  .favouritesButton{
+    padding: 12px 25px;
+    border: none;
+    background-color: #3BB77E;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .FavouriteItemsCard > div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .FavouriteItemsCard > div > a {
+    font: 300 0.9vmax cursive;
+    color: rgba(24, 24, 24, 0.815);
+    text-decoration: none;
+  }
+  
+  .FavouriteItemsCard > div > span {
+    font: 300 0.9vmax "Roboto";
+    color: rgba(24, 24, 24, 0.815);
+  }
+  
+  .FavouriteItemsCard > div > p {
+    color: #3BB77E;
+    font: 100 0.8vmax "Roboto";
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .FavouriteItemsCard {
+      padding: 3vmax;
+      height: 25vmax;
+    }
+    .FavouriteItemsCard > img {
+      width: 10vmax;
+    }
+  
+    .FavouriteItemsCard > div {
+      margin: 1vmax 2vmax;
+    }
+  
+    .FavouriteItemsCard > div > a {
+      font: 300 2vmax cursive;
+    }
+  
+    .FavouriteItemsCard > div > span {
+      font: 300 1.9vmax "Roboto";
+    }
+  
+    .FavouriteItemsCard > div > p {
+      font: 100 1.8vmax "Roboto";
+    }
+  }

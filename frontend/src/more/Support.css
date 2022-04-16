@@ -1,0 +1,25 @@
+.support{
+    background-image: url(https://image.freepik.com/free-vector/flat-customer-support-illustration_23-2148899114.jpg);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 30%;
+}
+.animation{
+    width:35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: pink;
+    position: fixed;
+    top: 10%;
+    right: 10%;
+    border: none;
+    animation: zoom 3s linear infinite;
+}
+@keyframes zoom {
+    0%,100%{
+        transform: scale(1.5);
+    }
+    50%{
+        transform: scale(.7);
+    }
+}

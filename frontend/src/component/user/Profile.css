@@ -1,0 +1,42 @@
+.profileContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1vmax 0px;
+}
+
+img.profile__img {
+    border-radius: 100%;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border: 4px solid #2f6ddf;
+}
+.edit__profile{
+    color: #0a8ef7;
+    font-family: "Poppins";
+    width: 100%;
+    text-align: end;
+    padding: .5vmax 0px;
+}
+.information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.info {
+    display: flex;
+    padding: 5px 0px;
+}
+.change__info {
+    display: flex;
+    flex-direction: column;
+    padding: 2vmax 0;
+}
+a.settings {
+    color: #1c6068;
+    font-family: 'Poppins';
+    font-weight: 600;
+}

@@ -1,0 +1,13 @@
+.inputBox > span{
+    font-family: "Roboto";
+    animation: sliding 14s linear infinite;
+    display: block;
+}
+@keyframes sliding{
+    0%{
+      transform: translateX(-70%);
+    }
+    100%{
+      transform: translateX(130%);
+    }
+  }

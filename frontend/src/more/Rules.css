@@ -1,0 +1,8 @@
+ul.rules > li{
+    font-family: sans-serif;
+    padding: 10px 0;
+    list-style: none;
+    line-height: 1.3;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
