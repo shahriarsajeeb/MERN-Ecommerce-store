@@ -18,6 +18,7 @@ import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { createOrder, clearErrors } from "../../actions/OrderAction";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loading from "../../more/Loader";
 
 const Payment = ({ history }) => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
@@ -29,7 +30,7 @@ const Payment = ({ history }) => {
 
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
-  const { error } = useSelector((state) => state.order);
+  const { error,loading } = useSelector((state) => state.order);
 
   const paymentData = {
     amount: Math.round(orderInfo.totalPrice * 100),
@@ -83,7 +84,7 @@ const Payment = ({ history }) => {
       if (result.error) {
         payBtn.current.disabled = false;
 
-        alert.error(result.error.message);
+        toast.error(result.error.message);
       } else {
         if (result.paymentIntent.status === "succeeded") {
           order.paymentInfo = {
@@ -100,57 +101,63 @@ const Payment = ({ history }) => {
       }
     } catch (error) {
       payBtn.current.disabled = false;
-      alert.error(error.response.data.message);
+      toast.error(error.response.data.message);
     }
   };
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
-  }, [dispatch, error, alert]);
+  }, [dispatch, error, toast]);
 
   return (
+   <>
+   {loading ? (
+     <Loading />
+   ) : (
     <>
-      <MetaData title="Payment" />
-      <CheckoutSteps activeStep={2} />
-      <div className="paymentContainer">
-        <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
-          <Typography>Card Info</Typography>
-          <div>
-            <CreditCardIcon />
-            <CardNumberElement className="paymentInput" />
-          </div>
-          <div>
-            <EventIcon />
-            <CardExpiryElement className="paymentInput" />
-          </div>
-          <div>
-            <VpnKeyIcon />
-            <CardCvcElement className="paymentInput" />
-          </div>
+    <MetaData title="Payment" />
+    <CheckoutSteps activeStep={2} />
+    <div className="paymentContainer">
+      <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
+        <Typography>Card Info</Typography>
+        <div>
+          <CreditCardIcon />
+          <CardNumberElement className="paymentInput" />
+        </div>
+        <div>
+          <EventIcon />
+          <CardExpiryElement className="paymentInput" />
+        </div>
+        <div>
+          <VpnKeyIcon />
+          <CardCvcElement className="paymentInput" />
+        </div>
 
-          <input
-            type="submit"
-            value={`Pay - $ ${orderInfo && orderInfo.totalPrice}`}
-            ref={payBtn}
-            className="paymentFormBtn"
-          />
-        </form>
-      </div>
-      <ToastContainer 
-       position="bottom-center"
-       autoClose={5000}
-       hideProgressBar={false}
-       newestOnTop={false}
-       closeOnClick
-       rtl={false}
-       pauseOnFocusLoss
-       draggable
-       pauseOnHover
-       />
-    </>
+        <input
+          type="submit"
+          value={`Pay - $ ${orderInfo && orderInfo.totalPrice}`}
+          ref={payBtn}
+          className="paymentFormBtn"
+        />
+      </form>
+    </div>
+    <ToastContainer 
+     position="bottom-center"
+     autoClose={5000}
+     hideProgressBar={false}
+     newestOnTop={false}
+     closeOnClick
+     rtl={false}
+     pauseOnFocusLoss
+     draggable
+     pauseOnHover
+     />
+  </>
+   )}
+   </>
   );
 };
 
