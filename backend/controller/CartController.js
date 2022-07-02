@@ -5,8 +5,14 @@ const ErrorHandler = require("../utils/ErrorHandler");
 
 // Add to wishlist
 exports.addToWishlist = catchAsyncErrors(async (req, res, next) => {
-  const { productName, quantity, productImage, productPrice, userId,productId } =
-    req.body;
+  const {
+    productName,
+    quantity,
+    productImage,
+    productPrice,
+    userId,
+    productId,
+  } = req.body;
   const wishList = await Wishlist.create({
     productName,
     quantity,
@@ -34,8 +40,8 @@ exports.getWishlistData = catchAsyncErrors(async (req, res, next) => {
 
 // remove wishlistData
 exports.removeWishlistData = catchAsyncErrors(async (req, res, next) => {
-  const wishlistData = await Wishlist.findById(req.params.id);
-
+  const { productId } = req.body;
+  const wishlistData = await Wishlist.findOne({ productId });
   if (!wishlistData) {
     return next(new ErrorHandler("Items is not found with this id", 404));
   }
@@ -50,8 +56,14 @@ exports.removeWishlistData = catchAsyncErrors(async (req, res, next) => {
 
 // add To Cart
 exports.addToCart = catchAsyncErrors(async (req, res, next) => {
-  const { productName, quantity, productImage, productPrice, userId,productId } =
-    req.body;
+  const {
+    productName,
+    quantity,
+    productImage,
+    productPrice,
+    userId,
+    productId,
+  } = req.body;
   const cart = await Cart.create({
     productName,
     quantity,
@@ -78,11 +90,14 @@ exports.getCartData = catchAsyncErrors(async (req, res, next) => {
 
 // remove Cart Data
 exports.removeCartData = catchAsyncErrors(async (req, res, next) => {
-  const cartData = await Cart.findByIdAndDelete(req.params.id);
+  const { productId } = req.body;
+  const cartData = await Cart.findOne({ productId });
 
   if (!cartData) {
     return next(new ErrorHandler("Items is not found with this id", 404));
   }
+
+  await cartData.remove();
 
   res.status(200).json({
     success: true,
