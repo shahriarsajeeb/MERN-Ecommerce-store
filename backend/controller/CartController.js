@@ -5,7 +5,7 @@ const ErrorHandler = require("../utils/ErrorHandler");
 
 // Add to wishlist
 exports.addToWishlist = catchAsyncErrors(async (req, res, next) => {
-  const { productName, quantity, productImage, productPrice, userId } =
+  const { productName, quantity, productImage, productPrice, userId,productId } =
     req.body;
   const wishList = await Wishlist.create({
     productName,
@@ -13,6 +13,7 @@ exports.addToWishlist = catchAsyncErrors(async (req, res, next) => {
     productImage,
     productPrice,
     userId,
+    productId,
   });
 
   res.status(200).json({
@@ -49,7 +50,7 @@ exports.removeWishlistData = catchAsyncErrors(async (req, res, next) => {
 
 // add To Cart
 exports.addToCart = catchAsyncErrors(async (req, res, next) => {
-  const { productName, quantity, productImage, productPrice, userId } =
+  const { productName, quantity, productImage, productPrice, userId,productId } =
     req.body;
   const cart = await Cart.create({
     productName,
@@ -57,6 +58,7 @@ exports.addToCart = catchAsyncErrors(async (req, res, next) => {
     productImage,
     productPrice,
     userId,
+    productId,
   });
 
   res.status(200).json({

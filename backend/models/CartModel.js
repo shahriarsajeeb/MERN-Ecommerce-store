@@ -21,6 +21,10 @@ const cartSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter your user id"],
   },
+  productId: {
+    type: String,
+    required: [true, "Please enter your user id"],
+  },
 });
 
 module.exports = mongoose.model("Cart", cartSchema);
