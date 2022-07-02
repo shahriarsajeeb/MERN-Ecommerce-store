@@ -1,5 +1,5 @@
 const Cart = require("../models/CartModel");
-const Wishlist = require("../models/WishlistModel");
+const Wishlist = require("../models/WishListModel");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ErrorHandler = require("../utils/ErrorHandler");
 
