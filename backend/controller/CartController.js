@@ -40,10 +40,10 @@ exports.getWishlistData = catchAsyncErrors(async (req, res, next) => {
 
 // remove wishlistData
 exports.removeWishlistData = catchAsyncErrors(async (req, res, next) => {
-  const { productId } = req.body;
-  const wishlistData = await Wishlist.findOne({ productId });
+  const wishlistData = await Wishlist.findById(req.params.id);
+
   if (!wishlistData) {
-    return next(new ErrorHandler("Items is not found with this id", 404));
+    return next(new ErrorHandler("No wishlistData found with this id", 404));
   }
 
   await wishlistData.remove();
@@ -90,8 +90,8 @@ exports.getCartData = catchAsyncErrors(async (req, res, next) => {
 
 // remove Cart Data
 exports.removeCartData = catchAsyncErrors(async (req, res, next) => {
-  const { productId } = req.body;
-  const cartData = await Cart.findOne({ productId });
+  
+  const cartData = await Cart.findById(req.params.id);
 
   if (!cartData) {
     return next(new ErrorHandler("Items is not found with this id", 404));

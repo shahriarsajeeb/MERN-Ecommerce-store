@@ -7,12 +7,12 @@ router.route("/wishlist").get(isAuthenticatedUser, getWishlistData);
 
 router.route("/addToWishlist").post(isAuthenticatedUser, addToWishlist);
 
-router.route("/removeWishlist").delete(isAuthenticatedUser, removeWishlistData);
+router.route("/removeWishlist/:id").delete(isAuthenticatedUser, removeWishlistData);
 
 router.route("/addToCart").post(isAuthenticatedUser, addToCart);
 
 router.route("/cart").get(isAuthenticatedUser, getCartData);
 
-router.route("/removeCart").delete(isAuthenticatedUser, removeCartData);
+router.route("/removeCart/:id").delete(isAuthenticatedUser, removeCartData);
 
 module.exports = router;
