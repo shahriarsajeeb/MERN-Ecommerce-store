@@ -83,6 +83,34 @@ exports.addToCart = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+// update Cart
+exports.updateCart = catchAsyncErrors(async (req, res, next) => {
+  const {
+    productName,
+    quantity,
+    productImage,
+    productPrice,
+    userId,
+    productId,
+    Stock,
+  } = req.body;
+  const cart = await Cart.findByIdAndUpdate(req.params.id);
+
+  if (!cart) {
+    return next(new ErrorHandler("No cart found with this id", 404));
+  }
+
+  await cart.update({
+    productName,
+    quantity,
+    productImage,
+    productPrice,
+    userId,
+    productId,
+    Stock,
+  });
+});
+
 // get Cart Data
 exports.getCartData = catchAsyncErrors(async (req, res, next) => {
   const cartData = await Cart.find({ userId: req.user.id });
@@ -94,7 +122,6 @@ exports.getCartData = catchAsyncErrors(async (req, res, next) => {
 
 // remove Cart Data
 exports.removeCartData = catchAsyncErrors(async (req, res, next) => {
-  
   const cartData = await Cart.findById(req.params.id);
 
   if (!cartData) {
