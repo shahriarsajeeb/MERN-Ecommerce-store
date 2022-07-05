@@ -86,13 +86,7 @@ exports.addToCart = catchAsyncErrors(async (req, res, next) => {
 // update Cart
 exports.updateCart = catchAsyncErrors(async (req, res, next) => {
   const {
-    productName,
     quantity,
-    productImage,
-    productPrice,
-    userId,
-    productId,
-    Stock,
   } = req.body;
   const cart = await Cart.findByIdAndUpdate(req.params.id);
 
@@ -101,13 +95,7 @@ exports.updateCart = catchAsyncErrors(async (req, res, next) => {
   }
 
   await cart.update({
-    productName,
     quantity,
-    productImage,
-    productPrice,
-    userId,
-    productId,
-    Stock,
   });
 });
 
