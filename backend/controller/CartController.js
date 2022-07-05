@@ -12,6 +12,7 @@ exports.addToWishlist = catchAsyncErrors(async (req, res, next) => {
     productPrice,
     userId,
     productId,
+    Stock,
   } = req.body;
   const wishList = await Wishlist.create({
     productName,
@@ -20,6 +21,7 @@ exports.addToWishlist = catchAsyncErrors(async (req, res, next) => {
     productPrice,
     userId,
     productId,
+    Stock,
   });
 
   res.status(200).json({
@@ -63,6 +65,7 @@ exports.addToCart = catchAsyncErrors(async (req, res, next) => {
     productPrice,
     userId,
     productId,
+    Stock,
   } = req.body;
   const cart = await Cart.create({
     productName,
@@ -71,6 +74,7 @@ exports.addToCart = catchAsyncErrors(async (req, res, next) => {
     productPrice,
     userId,
     productId,
+    Stock,
   });
 
   res.status(200).json({
