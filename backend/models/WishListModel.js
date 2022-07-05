@@ -24,6 +24,10 @@ const wishListSchema = new mongoose.Schema({
   productId:{
     type: String,
     required: [true, "Please enter your user id"],
+  },
+  Stock: {
+    type: Number,
+    required: [true, "Please enter your product stock"],
   }
 });
 
