@@ -35,6 +35,8 @@ const EditProfile = ({history}) => {
     dispatch(updateProfile(myForm));
   };
 
+  console.log(avatar);
+
   const updateProfileDataChange = (e) => {
     const reader = new FileReader();
 

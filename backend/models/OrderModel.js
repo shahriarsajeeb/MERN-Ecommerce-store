@@ -4,7 +4,7 @@ const orderSchema = new mongoose.Schema({
   shippingInfo: {
     address: {
       type: String,
-      required: true,
+      // required: true,
     },
     city: {
       type: String,
@@ -12,11 +12,11 @@ const orderSchema = new mongoose.Schema({
     },
     state: {
       type: String,
-      required: true,
+      // required: true,
     },
     country: {
       type: String,
-      required: true,
+      // required: true,
     },
     pinCode: {
       type: Number,
@@ -24,16 +24,16 @@ const orderSchema = new mongoose.Schema({
     },
     phoneNo: {
       type: Number,
-      required: true,
+      // required: true,
     },
   },
   orderItems: [
     {
-      name: {
+      productName: {
         type: String,
         required: true,
       },
-      price: {
+      productPrice: {
         type: Number,
         required: true,
       },
@@ -41,11 +41,11 @@ const orderSchema = new mongoose.Schema({
         type: Number,
         required: true,
       },
-      image: {
+      productImage: {
         type: String,
         required: true,
       },
-      product: {
+      productId: {
         type: mongoose.Schema.ObjectId,
         ref: "Product",
         required: true,
@@ -78,7 +78,6 @@ const orderSchema = new mongoose.Schema({
   },
   taxPrice: {
     type: Number,
-    required: true,
     default: 0,
   },
   shippingPrice: {
