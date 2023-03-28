@@ -12,7 +12,7 @@
     "dev": "nodemon backend/server.js",
     "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
   },
-  "author": "shahriar sajeeb",
+  "author": "Anil Mandal",
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
